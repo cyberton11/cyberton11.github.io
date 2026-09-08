@@ -1,6 +1,6 @@
 site_name: "Portafolio de Ciberseguridad"
 site_description: "Writeups de laboratorios, CTFs y proyectos de seguridad"
-site_author: "Tu Nombre" # Puedes cambiar esto por tu nombre o nick
+site_author: "Tu Nombre"
 
 theme:
   name: material
@@ -22,8 +22,8 @@ theme:
         name: Cambiar a modo oscuro
   features:
     - navigation.tabs
-    - navigation.sections          # Muestra las secciones limpias en el menú
-    - content.code.copy            # Botón para copiar comandos con un clic
+    - navigation.sections
+    - content.code.copy
     - content.code.annotate
 
 markdown_extensions:
@@ -33,7 +33,7 @@ markdown_extensions:
       pygments_style: github-dark
   - pymdownx.superfences
 
-# Menú organizado por secciones corregido con las sangrías correctas
+# Menú organizado por secciones (Corregido con espacios hacia la derecha)
 nav:
   - Inicio: index.md
   - Laboratorios:
