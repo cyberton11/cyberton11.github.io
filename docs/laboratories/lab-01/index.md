@@ -20,7 +20,7 @@ The lab comprises two main hosts interconnected through a private, isolated netw
 - **Target Host:** Metasploitable 3 virtual machine used as the intentionally vulnerable Linux system.
 - **Network Segment:** Virtualized internal network (`192.168.100.0/24`).
 ### Network diagram:
-![Netdiagram](undefineddocs/laboratories/lab-01/images/Netdiagram.png)
+![images/Netdiagram.png](undefineddocs/laboratories/lab-01/images/Netdiagram.png)
 
 ---
 ## 3. Hypervisor and Network Adapter Configuration
@@ -68,7 +68,7 @@ Connectivity and interface status are verified to confirm that the IP address wa
 
 	ip addr show eth0
    
-![Pasted image 20260903172320](undefineddocs/laboratories/lab-01/images/Pasted%20image%2020260903172320.png)
+![images/Pasted%20image%2020260903172320.png](undefineddocs/laboratories/lab-01/images/Pasted%20image%2020260903172320.png)
 
 ### 4.2. Assigning a Permanent Static IP in Metasploitable 3 (Target Host)
 
@@ -90,7 +90,7 @@ Finally, verify the persistent IP address assignment to confirm that the changes
 
 	ip addr show eth0
   
-![Pasted image 20260903175744](undefineddocs/laboratories/lab-01/images/Pasted%20image%2020260903175744.png)
+![images/Pasted%20image%2020260903175744.png](undefineddocs/laboratories/lab-01/images/Pasted%20image%2020260903175744.png)
 
 ---
 ## 5. Connectivity and Isolation Verification
@@ -105,7 +105,7 @@ From the **Kali Linux** terminal, execute a ping command to the Metasploitable 3
 
 * **Expected Result:** 4 packets transmitted, 4 received, 0% packet loss. This confirms that the virtual switch is operating correctly and internal network communication is fully functional.
 
-![Pasted image 20260903132235](undefineddocs/laboratories/lab-01/images/Pasted%20image%2020260903132235.png)
+![images/Pasted%20image%2020260903132235.png](undefineddocs/laboratories/lab-01/images/Pasted%20image%2020260903132235.png)
 
 From the **Metasploitable 3** host, execute a ping command to the Kali Linux host to verify two-way communication:
 
@@ -113,7 +113,7 @@ From the **Metasploitable 3** host, execute a ping command to the Kali Linux hos
 	
 - **Expected Result:** 4 packets transmitted, 4 received, 0% packet loss. This confirms that bidirectional traffic is successfully established within the isolated network segment.
 
-![Pasted image 20260903133211](undefineddocs/laboratories/lab-01/images/Pasted%20image%2020260903133211.png)
+![images/Pasted%20image%2020260903133211.png](undefineddocs/laboratories/lab-01/images/Pasted%20image%2020260903133211.png)
 
 ### Test 2: Absolute Isolation (Egress Traffic Test)
 
@@ -123,12 +123,12 @@ From either host, attempt to ping an external server (such as Google Public DNS 
 
 #### From Metasploitable3 Host
 
-![Pasted image 20260903133349](undefineddocs/laboratories/lab-01/images/Pasted%20image%2020260903133349.png)
+![images/Pasted%20image%2020260903133349.png](undefineddocs/laboratories/lab-01/images/Pasted%20image%2020260903133349.png)
 
 - **Expected Result:** `Network is unreachable` or `100% packet loss`. This confirms absolute network containment, verifying that the target host cannot communicate with the external internet.
 #### From Kali Linux Host
  
-![Pasted image 20260903133422](undefineddocs/laboratories/lab-01/images/Pasted%20image%2020260903133422.png)
+![images/Pasted%20image%2020260903133422.png](undefineddocs/laboratories/lab-01/images/Pasted%20image%2020260903133422.png)
 
 * **Expected Result:** `Network is unreachable` or `100% packet loss.` This confirms that the laboratory is strictly isolated and secure for offensive operations.
 
@@ -145,7 +145,7 @@ From the **Kali Linux** terminal, a network scan is executed against the target 
 
 	nmap -p- 192.168.100.10
 
-![Pasted image 20260903134136](undefineddocs/laboratories/lab-01/images/Pasted%20image%2020260903134136.png)
+![images/Pasted%20image%2020260903134136.png](undefineddocs/laboratories/lab-01/images/Pasted%20image%2020260903134136.png)
 
 *Observation: The target host exposes multiple legacy and high-risk services—such as SMB and FTP—directly to the internal network segment, significantly expanding its attack surface.*
 
@@ -214,7 +214,7 @@ To minimize the attack surface, HTTP traffic (Port 80) was strictly limited. The
 
 	sudo iptables -A INPUT -p tcp --dport 80 -s 192.168.100.0/24 -j ACCEPT
 
-![Pasted image 20260903140542](undefineddocs/laboratories/lab-01/images/Pasted%20image%2020260903140542.png)
+![images/Pasted%20image%2020260903140542.png](undefineddocs/laboratories/lab-01/images/Pasted%20image%2020260903140542.png)
 
 ***Step 3: Post-Hardening Verification Scan
 
@@ -228,7 +228,7 @@ After applying the custom `iptables` configuration, an identical verification sc
 - **Port 80 (HTTP):** `open` _(Authorized corporate web service)_
 - **Port 445 (SMB):** `filtered` _(Blocked by default drop policy)_
 
-![Pasted image 20260903141102](undefineddocs/laboratories/lab-01/images/Pasted%20image%2020260903141102.png)
+![images/Pasted%20image%2020260903141102.png](undefineddocs/laboratories/lab-01/images/Pasted%20image%2020260903141102.png)
 
 
 *Observation: The host-based firewall successfully reduced the attack surface of these audited vectors by **66%**, isolating critical management protocols while keeping the core business application (Web Server) operational.*
@@ -245,7 +245,7 @@ Auditing the filtered states using `nmap` and `netcat`:
 
 **Note:** The `netcat` command outputs `Connection timed out`. Since the firewall drops packets silently rather than actively rejecting them, the attacker is forced to drain connection resources during reconnaissance.
 
-![Pasted image 20260903142757](undefineddocs/laboratories/lab-01/images/Pasted%20image%2020260903142757.png)
+![images/Pasted%20image%2020260903142757.png](undefineddocs/laboratories/lab-01/images/Pasted%20image%2020260903142757.png)
 
 ### 6.3 Forensic Log Analysis (Metasploitable 3) 
 
@@ -257,7 +257,7 @@ To establish a comprehensive security audit trail, a high-priority logging rule 
 
 	`Sep 3 19:28:57 metasploitable3-ub1404 kernel: iptables: IN=eth0 OUT= SRC=192.168.100.5 DST=192.168.100.10 PROTO=TCP SPT=43210 DPT=445 SYN`
 
-![Pasted image 20260903142910](undefineddocs/laboratories/lab-01/images/Pasted%20image%2020260903142910.png)
+![images/Pasted%20image%2020260903142910.png](undefineddocs/laboratories/lab-01/images/Pasted%20image%2020260903142910.png)
 #### Triage Analysis:
 
 * - **`Timestamp & Hostname`:** Provides timeline correlation for incident responders.
@@ -358,4 +358,4 @@ The deployment and execution of the automation script on the **Metasploitable 3*
 
 	`sudo ./hardener.sh`
 
-![[undefineddocs/laboratories/lab-01/images/Pasted image 20260903144708.png|images/Pasted image 20260903144708.png]]
+![images/Pasted%20image%2020260903144708.png](undefineddocs/laboratories/lab-01/images/Pasted%20image%2020260903144708.png)
