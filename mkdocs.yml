@@ -1,6 +1,6 @@
-site_name: "Portafolio de Ciberseguridad"
-site_description: "Writeups de laboratorios, CTFs y proyectos de seguridad"
-site_author: "cyberton11"
+site_name: Portafolio de Ciberseguridad
+site_description: Writeups de laboratorios CTFs y proyectos de seguridad
+site_author: cyberton11
 
 theme:
   name: material
@@ -33,7 +33,6 @@ markdown_extensions:
       pygments_style: github-dark
   - pymdownx.superfences
 
-# Estructura del menú limpia sin prefijos duplicados
 nav:
   - Inicio: index.md
   - Laboratorios:
