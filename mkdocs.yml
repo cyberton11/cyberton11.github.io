@@ -39,7 +39,7 @@ nav:
   - Laboratories:
       - Laboratories: docs/laboratories/index.md
        - Laboratories: laboratories/index.md
-      - Lab 1: docs/lab-01/index.md
+      - Lab 1: docs/laboratories/lab-01/index.md
   - CTF:
       - CTF: ctf/index.md
       - HackTheBox: ctf/htb-machine-1.md
