@@ -1,51 +1,48 @@
-site_name: "Portafolio de Ciberseguridad"
-site_description: "Writeups de laboratorios, CTFs y proyectos de seguridad"
-site_author: "Tu Nombre"
+name: Desplegar Portafolio MkDocs
+on:
+  push:
+    branches:
+      - main # Se activa cuando subes notas desde Obsidian a main
 
-theme:
-  name: material
-  language: es
-  palette:
-    - media: "(prefers-color-scheme: dark)"
-      scheme: slate
-      primary: teal
-      accent: teal
-      toggle:
-        icon: material/weather-sunny
-        name: Cambiar a modo claro
-    - media: "(prefers-color-scheme: light)"
-      scheme: default
-      primary: teal
-      accent: teal
-      toggle:
-        icon: material/weather-night
-        name: Cambiar a modo oscuro
-  features:
-    - navigation.tabs
-    - navigation.sections          # Mostrará las secciones en el menú
-    - content.code.copy
-    - content.code.annotate
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 
-markdown_extensions:
-  - pymdownx.highlight:
-      anchor_linenums: true
-      line_spans: __span
-      pygments_style: github-dark
-  - pymdownx.superfences
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
 
-# Menú organizado por secciones
-nav:
-  - Inicio: index.md
-  - Laboratorios:
-    - Laboratorios: laboratorios/index.md
-    - Lab 1: laboratorios/lab-1-intro.md
-    - Lab 2: laboratorios/lab-2-advanced.md
-  - CTF:
-    - CTF: ctf/index.md
-    - HackTheBox: ctf/htb-machine-1.md
-    - TryHackMe: ctf/tryhackme-room-1.md
-  - Proyectos:
-    - Proyectos: proyectos/index.md
-    - Proyecto 1: proyectos/proyecto-1.md
-    - Proyecto 2: proyectos/proyecto-2.md
-  - Sobre mí: sobre-mi.md
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout del repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.x
+
+      - name: Instalar MkDocs y Tema Material
+        run: |
+          pip install mkdocs-material
+
+      - name: Configurar GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Compilar el sitio web
+        run: mkdocs build
+
+      - name: Subir artefacto de la web
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./site
+
+      - name: Desplegar en GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
