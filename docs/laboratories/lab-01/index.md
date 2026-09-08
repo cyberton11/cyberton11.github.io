@@ -20,7 +20,7 @@ The lab comprises two main hosts interconnected through a private, isolated netw
 - **Target Host:** Metasploitable 3 virtual machine used as the intentionally vulnerable Linux system.
 - **Network Segment:** Virtualized internal network (`192.168.100.0/24`).
 ### Network diagram:
-![images/Netdiagram.png](undefineddocs/laboratories/lab-01/images/Netdiagram.png)
+![Netdiagram](undefineddocs/laboratories/lab-01/images/Netdiagram.png)
 
 ---
 ## 3. Hypervisor and Network Adapter Configuration
@@ -68,7 +68,7 @@ Connectivity and interface status are verified to confirm that the IP address wa
 
 	ip addr show eth0
    
-![images/Pasted%20image%2020260903172320.png](undefineddocs/laboratories/lab-01/images/Pasted%20image%2020260903172320.png)
+![images/Pasted image 20260903172320.png](undefineddocs/laboratories/lab-01/images/Pasted%20image%2020260903172320.png)
 
 ### 4.2. Assigning a Permanent Static IP in Metasploitable 3 (Target Host)
 
@@ -90,8 +90,7 @@ Finally, verify the persistent IP address assignment to confirm that the changes
 
 	ip addr show eth0
   
-![images/Pasted%20image%2020260903175744.png](undefineddocs/laboratories/lab-01/images/Pasted%20image%2020260903175744.png)
-
+![](undefineddocs/laboratories/lab-01/images/Pasted%20image%2020260903175744.png)
 ---
 ## 5. Connectivity and Isolation Verification
 
