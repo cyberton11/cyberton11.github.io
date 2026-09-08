@@ -358,4 +358,4 @@ The deployment and execution of the automation script on the **Metasploitable 3*
 
 	`sudo ./hardener.sh`
 
-![[/Pasted image 20260903144708.png|/Pasted image 20260903144708.png]]
+![[undefineddocs/laboratories/lab-01/images/Pasted image 20260903144708.png|images/Pasted image 20260903144708.png]]
