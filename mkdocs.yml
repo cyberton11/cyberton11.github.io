@@ -1,6 +1,6 @@
-site_name: "Portafolio de Ciberseguridad"
-site_description: "Writeups de laboratorios, CTFs y proyectos de seguridad"
-site_author: "Tu Nombre"
+site_name: "Cibersec Portfolio"
+site_description: "Lab writeups and cybersecurity projects
+site_author: "Antonio Cavazos"
 
 theme:
   name: material
@@ -37,9 +37,9 @@ markdown_extensions:
 nav:
   - Inicio: index.md
   - Laboratories:
-      - Laboratories: laboratorios/index.md
-       - Laboratories: labs/index.md
-      - Lab 1: labs/lab-01/index.md
+      - Laboratories: docs/laboratories/index.md
+       - Laboratories: laboratories/index.md
+      - Lab 1: docs/lab-01/index.md
   - CTF:
       - CTF: ctf/index.md
       - HackTheBox: ctf/htb-machine-1.md
