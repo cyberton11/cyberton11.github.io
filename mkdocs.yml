@@ -36,10 +36,9 @@ markdown_extensions:
 # Menú organizado por secciones (Corregido con espacios hacia la derecha)
 nav:
   - Inicio: index.md
-  - Laboratories:
-      - Laboratories: docs/laboratories/index.md
-       - Laboratories: laboratories/index.md
-      - Lab 1: docs/laboratories/lab-01/index.md
+  - Laboratorios:
+      - Laboratorios: laboratories/index.md
+      - Lab 1: laboratories/lab-01/index.md
   - CTF:
       - CTF: ctf/index.md
       - HackTheBox: ctf/htb-machine-1.md
