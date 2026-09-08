@@ -1,6 +1,6 @@
-site_name: "Cibersec Portfolio"
-site_description: "Lab writeups and cybersecurity projects
-site_author: "Antonio Cavazos"
+site_name: "Portafolio de Ciberseguridad"
+site_description: "Writeups de laboratorios, CTFs y proyectos de seguridad"
+site_author: "cyberton11"
 
 theme:
   name: material
@@ -33,7 +33,7 @@ markdown_extensions:
       pygments_style: github-dark
   - pymdownx.superfences
 
-# Menú organizado por secciones (Corregido con espacios hacia la derecha)
+# Estructura del menú limpia sin prefijos duplicados
 nav:
   - Inicio: index.md
   - Laboratorios:
