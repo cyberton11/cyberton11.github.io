@@ -1,0 +1,40 @@
+site_name: "Portafolio de Ciberseguridad"
+site_description: "Writeups de laboratorios, CTFs y proyectos de seguridad"
+site_author: "Tu Nombre"
+
+theme:
+  name: material
+  language: es
+  palette:
+    # Configura el modo oscuro por defecto (ideal para ciberseguridad)
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: teal
+      accent: teal
+      toggle:
+        icon: material/weather-sunny
+        name: Cambiar a modo claro
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: teal
+      accent: teal
+      toggle:
+        icon: material/weather-night
+        name: Cambiar a modo oscuro
+  features:
+    - navigation.tabs       # Menú superior elegante
+    - content.code.copy     # Botón para copiar código con un clic
+    - content.code.annotate # Notas dentro del código
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_style: github-dark
+  - pymdownx.superfences # Soporte avanzado para bloques de código
+
+# Aquí organizas tu menú web
+nav:
+  - Inicio: index.md
+  - Laboratorios:
+    - "Mi Primer Laboratorio": nombre-de-tu-nota.md  # 👈 REEMPLAZA con el nombre exacto de tu archivo (sin el .md si quieres, o déjalo con .md)
