@@ -140,7 +140,7 @@ To demonstrate a defensive posture, the built-in Linux firewall (`iptables`) is 
 
 By default, Metasploitable exposes multiple vulnerable ports to network traffic. This implementation enforces a **least privilege** defensive policy: **drop all inbound traffic by default, except for HTTP requests (Port 80)**, restricting network access exclusively to the authorized attacker subnet.
 
-***Step 1: Scanning Active Ports Before Hardening
+***Step 1: Scanning Active Ports Before Hardening***
 
 From the **Kali Linux** terminal, a network scan is executed against the target host to identify the exposed attack surface and active services:
 
@@ -170,7 +170,7 @@ Finally, flush all pre-existing rules and user-defined chains to ensure a clean 
 
 *Result: Once UFW was deactivated and the active tables were flushed, the native `iptables` rules took effect as intended, successfully modifying the port states according to the defensive policy.
 
-***Step 2: Applying Defensive Rules on Metasploitable 3
+***Step 2: Applying Defensive Rules on Metasploitable 3***
 
 After flushing the existing chains using the `-F` flag, a strict default security policy was established, and specific traffic exceptions were defined on the target host:
 
@@ -217,7 +217,7 @@ To minimize the attack surface, HTTP traffic (Port 80) was strictly limited. The
 
 ![images/Pasted%20image%2020260903140542.png](images/Pasted%20image%2020260903140542.png)
 
-***Step 3: Post-Hardening Verification Scan
+***Step 3: Post-Hardening Verification Scan***
 
 After applying the custom `iptables` configuration, an identical verification scan was executed from the **Kali Linux** terminal to audit the new network posture:
 
