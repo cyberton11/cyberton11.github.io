@@ -1,8 +1,9 @@
-# Isolated Security Lab Deployment and Host Based Hardening Automation
 ---
 share: true
 title: Isolated Security Lab Deployment and Host Based Hardening Automation
 ---
+# Isolated Security Lab Deployment and Host Based Hardening Automation
+
 This project demonstrates the design, deployment, and hardening of an isolated virtual home lab. The primary goal is to simulate a segmented corporate network to safely conduct security testing, ensuring that malicious traffic is contained and cannot leak into the production network or the internet.
 
 ### Technical objetives:
