@@ -1,6 +1,6 @@
 site_name: "Portafolio de Ciberseguridad"
 site_description: "Writeups de laboratorios, CTFs y proyectos de seguridad"
-site_author: "Tu Nombre"
+site_author: "Tu Nombre" # Puedes cambiar esto por tu nombre o nick
 
 theme:
   name: material
@@ -22,8 +22,8 @@ theme:
         name: Cambiar a modo oscuro
   features:
     - navigation.tabs
-    - navigation.sections          # Mostrará las secciones en el menú
-    - content.code.copy
+    - navigation.sections          # Muestra las secciones limpias en el menú
+    - content.code.copy            # Botón para copiar comandos con un clic
     - content.code.annotate
 
 markdown_extensions:
@@ -33,19 +33,19 @@ markdown_extensions:
       pygments_style: github-dark
   - pymdownx.superfences
 
-# Menú organizado por secciones
+# Menú organizado por secciones corregido con las sangrías correctas
 nav:
   - Inicio: index.md
   - Laboratorios:
-    - Laboratorios: laboratorios/index.md
-    - Lab 1: laboratorios/lab-1-intro.md
-    - Lab 2: laboratorios/lab-2-advanced.md
+      - Laboratorios: laboratorios/index.md
+      - Lab 1: laboratorios/lab-1-intro.md
+      - Lab 2: laboratorios/lab-2-advanced.md
   - CTF:
-    - CTF: ctf/index.md
-    - HackTheBox: ctf/htb-machine-1.md
-    - TryHackMe: ctf/tryhackme-room-1.md
+      - CTF: ctf/index.md
+      - HackTheBox: ctf/htb-machine-1.md
+      - TryHackMe: ctf/tryhackme-room-1.md
   - Proyectos:
-    - Proyectos: proyectos/index.md
-    - Proyecto 1: proyectos/proyecto-1.md
-    - Proyecto 2: proyectos/proyecto-2.md
+      - Proyectos: proyectos/index.md
+      - Proyecto 1: proyectos/proyecto-1.md
+      - Proyecto 2: proyectos/proyecto-2.md
   - Sobre mí: sobre-mi.md
