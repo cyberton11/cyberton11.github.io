@@ -6,7 +6,6 @@ theme:
   name: material
   language: es
   palette:
-    # Configura el modo oscuro por defecto (ideal para ciberseguridad)
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
       primary: teal
@@ -22,19 +21,31 @@ theme:
         icon: material/weather-night
         name: Cambiar a modo oscuro
   features:
-    - navigation.tabs       # Menú superior elegante
-    - content.code.copy     # Botón para copiar código con un clic
-    - content.code.annotate # Notas dentro del código
+    - navigation.tabs
+    - navigation.sections          # Mostrará las secciones en el menú
+    - content.code.copy
+    - content.code.annotate
 
 markdown_extensions:
   - pymdownx.highlight:
       anchor_linenums: true
       line_spans: __span
       pygments_style: github-dark
-  - pymdownx.superfences # Soporte avanzado para bloques de código
+  - pymdownx.superfences
 
-# Aquí organizas tu menú web
+# Menú organizado por secciones
 nav:
   - Inicio: index.md
   - Laboratorios:
-    - "Mi Primer Laboratorio": nombre-de-tu-nota.md  # 👈 REEMPLAZA con el nombre exacto de tu archivo (sin el .md si quieres, o déjalo con .md)
+    - Laboratorios: laboratorios/index.md
+    - Lab 1: laboratorios/lab-1-intro.md
+    - Lab 2: laboratorios/lab-2-advanced.md
+  - CTF:
+    - CTF: ctf/index.md
+    - HackTheBox: ctf/htb-machine-1.md
+    - TryHackMe: ctf/tryhackme-room-1.md
+  - Proyectos:
+    - Proyectos: proyectos/index.md
+    - Proyecto 1: proyectos/proyecto-1.md
+    - Proyecto 2: proyectos/proyecto-2.md
+  - Sobre mí: sobre-mi.md
