@@ -1,22 +1,51 @@
-name: ci 
-on:
-  push:
-    branches:
-      - main  # 👈 Cambia a 'master' si tu rama principal se llama así
-permissions:
-  contents: write
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: 3.x
-      - run: echo "cache_id=$(date +%Y%m%d)" >> $GITHUB_ENV
-      - uses: actions/cache@v4
-        with:
-          key: mkdocs-material-${{ env.cache_id }}
-          path: .cache
-      - run: pip install mkdocs-material
-      - run: mkdocs gh-deploy --force
+site_name: "Portafolio de Ciberseguridad"
+site_description: "Writeups de laboratorios, CTFs y proyectos de seguridad"
+site_author: "Tu Nombre"
+
+theme:
+  name: material
+  language: es
+  palette:
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: teal
+      accent: teal
+      toggle:
+        icon: material/weather-sunny
+        name: Cambiar a modo claro
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: teal
+      accent: teal
+      toggle:
+        icon: material/weather-night
+        name: Cambiar a modo oscuro
+  features:
+    - navigation.tabs
+    - navigation.sections          # Mostrará las secciones en el menú
+    - content.code.copy
+    - content.code.annotate
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_style: github-dark
+  - pymdownx.superfences
+
+# Menú organizado por secciones
+nav:
+  - Inicio: index.md
+  - Laboratorios:
+    - Laboratorios: laboratorios/index.md
+    - Lab 1: laboratorios/lab-1-intro.md
+    - Lab 2: laboratorios/lab-2-advanced.md
+  - CTF:
+    - CTF: ctf/index.md
+    - HackTheBox: ctf/htb-machine-1.md
+    - TryHackMe: ctf/tryhackme-room-1.md
+  - Proyectos:
+    - Proyectos: proyectos/index.md
+    - Proyecto 1: proyectos/proyecto-1.md
+    - Proyecto 2: proyectos/proyecto-2.md
+  - Sobre mí: sobre-mi.md
