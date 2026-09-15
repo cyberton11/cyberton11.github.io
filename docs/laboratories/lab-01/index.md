@@ -225,7 +225,7 @@ After applying the custom `iptables` configuration, an identical verification sc
 
 **Final Hardened Network State:**
 
-* **Port 21 (FTP):** `filtered` _(Blocked by default drop policy)_
+* **Port 22 (SSH):** `filtered` _(Blocked by default drop policy)_
 - **Port 80 (HTTP):** `open` _(Authorized corporate web service)_
 - **Port 445 (SMB):** `filtered` _(Blocked by default drop policy)_
 
@@ -242,7 +242,7 @@ Auditing the filtered states using `nmap` and `netcat`:
 	nc -nv 192.168.100.10 445  
 
 * **Port 80 (HTTP):** Remains `open` for functional testing.
-* **Ports 20 (FTP) & 445 (SMB):** Changed to `filtered`. 
+* **Ports 22 (SSH) & 445 (SMB):** Changed to `filtered`. 
 
 **Note:** The `netcat` command outputs `Connection timed out`. Since the firewall drops packets silently rather than actively rejecting them, the attacker is forced to drain connection resources during reconnaissance.
 
